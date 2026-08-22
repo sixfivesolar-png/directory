@@ -1,0 +1,31 @@
+# Local/runtime files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Local secrets and uploads
+.env
+.env.*
+!*.example
+storage/uploads/*
+!storage/uploads/.gitkeep
+
+# Editor/OS files
+.vscode/
+.idea/
+
+# Node artifacts if tooling is used
+node_modules/
+dist/
+
+# Generated debug artifacts
+__manus__/debug-collector.js
+__manus__/version.json
+
+# Database dumps
+*.sql.gz
+*.dump
+
+# Archives
+*.zip

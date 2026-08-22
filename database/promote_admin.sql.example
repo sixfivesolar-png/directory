@@ -1,0 +1,3 @@
+-- After registering the first account through the website, replace the email below and execute in phpMyAdmin.
+USE prachuap_directory;
+UPDATE users SET role = 'admin' WHERE email = 'replace-with-admin@example.com';

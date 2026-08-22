@@ -1,0 +1,4 @@
+-- Run this on an existing prachuap_directory database after upgrade_auth.sql.
+USE prachuap_directory;
+CREATE TABLE IF NOT EXISTS claim_documents (id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,claim_id BIGINT UNSIGNED NOT NULL,stored_name VARCHAR(120) NOT NULL UNIQUE,original_name VARCHAR(180) NOT NULL,mime_type VARCHAR(100) NOT NULL,byte_size INT UNSIGNED NOT NULL,created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,INDEX idx_claim_documents_claim (claim_id),CONSTRAINT fk_claim_documents_claim FOREIGN KEY (claim_id) REFERENCES business_claims(id) ON DELETE CASCADE) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS place_views (id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,place_slug VARCHAR(140) NOT NULL,event_type ENUM('detail_view') NOT NULL DEFAULT 'detail_view',created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,INDEX idx_views_place_created (place_slug,created_at)) ENGINE=InnoDB;
